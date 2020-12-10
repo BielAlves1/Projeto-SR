@@ -52,12 +52,12 @@ insert into funcoes(funcao) values
 ("Encanador"),
 ("Carpinteiro");
 
-insert into funcionarios(nome, valorHora) values
-("Rafael Silva", 12.00),
-("Fernanda Sousa", 12.75),
-("Edinaldo Pereira", 10.50),
-("Marta Gomes", 100.00),
-("Matheus Alves", 100.00);
+insert into funcionarios(nome, id_funcao, valorHora) values
+("Rafael Silva", 1, 12.00),
+("Fernanda Sousa", 2, 12.75),
+("Edinaldo Pereira", 3, 10.50),
+("Mamaco Silva", 4, 10.00),
+("Matheus Alves", 3, 12.00);
 
 
 insert into obras(nomeO, descricao, endereco) values
@@ -70,13 +70,14 @@ insert into poss(id_funcionario, id_obra, hora_inicio, hora_prevista) values
 (2, 2, 07, 17),
 (3, 3, 08, 18);
 
-Select * , hora_prevista - hora_inicio as totalHora, (hora_prevista - hora_inicio)*f.valorHora as totalDiara from poss p
-inner join funcionarios f on p.id_funcionario = f.id_funcionario;
-
 select * from funcoes;
 select * from funcionarios;
 select * from poss;
 select * from obras;
+
+Select * , hora_prevista - hora_inicio as totalHora, (hora_prevista - hora_inicio)*f.valorHora as totalDiaria from poss p
+inner join funcionarios f on p.id_funcionario = f.id_funcionario;
+
 select * from vw_obras;
 show tables;
 
