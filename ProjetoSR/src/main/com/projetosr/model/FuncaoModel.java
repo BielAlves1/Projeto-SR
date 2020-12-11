@@ -10,11 +10,11 @@ public class FuncaoModel {
 	public void setIdFuncao(int idFuncao) {
 		this.idFuncao = idFuncao;
 	}
-	public String getDescricao() {
+	public String getFuncao() {
 		return funcao;
 	}
-	public void setDescricao(String descricao) {
-		this.funcao = descricao;
+	public void setFuncao(String funcao) {
+		this.funcao = funcao;
 	}
 	
 }

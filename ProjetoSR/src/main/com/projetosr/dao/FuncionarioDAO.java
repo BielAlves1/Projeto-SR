@@ -34,7 +34,7 @@ public class FuncionarioDAO {
 		return sucesso;
 	}
 
-	public ArrayList<FuncionarioModel> listAll() {
+	public ArrayList<FuncionarioModel> readAll() {
 		funcionarios = new ArrayList<>(); // Cria uma lisa vazia
 		String query = "Select * from funcionarios";
 		con = ConnectionDB.getConnection(); // Obtem conexão
@@ -58,7 +58,7 @@ public class FuncionarioDAO {
 	
 	public boolean update(FuncionarioModel f) {
 		boolean sucesso = false;
-		String quey = "update funcionarios set nome = ?, valorHora = ?, where id_funcionario = ?, id_funcao = ?";
+		String quey = "update funcionarios set nome = ?, valorHora = ? where id_funcionario = ?, id_funcao = ?";
 		con = ConnectionDB.getConnection();
 		try {
 			ps = con.prepareStatement(quey);
@@ -78,10 +78,10 @@ public class FuncionarioDAO {
 	
 	public boolean delete(FuncionarioModel f) {
 		boolean sucesso = false;
-		String sql = "delete from funcionarios where id_funcionario = ?, id_funcao = ?";
+		String query = "delete from funcionarios where id_funcionario = ?, id_funcao = ?";
 		con = ConnectionDB.getConnection();
 		try {
-			ps = con.prepareStatement(sql);
+			ps = con.prepareStatement(query);
 			ps.setInt(1, f.getIdFuncionario());
 			ps.setInt(2, f.getIdFuncao());
 			if (ps.executeUpdate() > 0) {

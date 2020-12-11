@@ -3,8 +3,8 @@ package com.projetosr.model;
 public class ObraModel {
 	private int idObra;
 	private String nome;
-	private String endereco;
 	private String descricao;
+	private String endereco;
 	
 	public int getIdObra() {
 		return idObra;
